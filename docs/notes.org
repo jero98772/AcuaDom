@@ -1,0 +1,23 @@
+* notes
+proyect fishtank with
+** sensors
+turbity (tocheck)
+level
+clock
+temperature (ok)
+** ligths
+day ligths and nigth
+brigth controler
+** controlers
+on/off ligths
+voice controler
+** network
+iot sensors network
+
+
+** software desing
+in c++ oop with platformio because we need to endable/disdable modules
+
+we going to divide the proyects in 2 parts lamp and acuarium controler with sensors
+
+
