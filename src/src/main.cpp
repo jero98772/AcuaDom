@@ -1,7 +1,13 @@
 #include <Arduino.h>
-
+/*void recivemsg(){
+  while (Serial.available() == 0) {
+    String dat=Serial.readString();
+    if(dat!=""){
+      Serial.println(dat);
+    }
+  }*/
 void setup() {
-  // put your setup code here, to run once:
+  
 }
 
 void loop() {
