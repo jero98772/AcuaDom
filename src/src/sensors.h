@@ -13,11 +13,9 @@ public:
     float floatdhtTemperatureGetCelcius();
     float floatdhtTemperatureGetFahrenheit();
     short int dhtHumidityGet();
-    
     float waterTemperatureGet();
-    short int turbityGet();
-    void waterTemperatureSetup();
-    void turbitySetup();
+    short int turbityGetAnalog();
+    short int turbityGetDigital();
     //water level
     //clock
 };

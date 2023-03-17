@@ -7,12 +7,16 @@ TASK
 compleate sensors modules and add macros and precompilator directives
 macros and precompilator directives
 
-
+REMEMBER 
+we goint to change board to esp32, with new pins , we need change to new pins
 
 
 */
 
 #define waterTemperatureSensor
+#define waterTemperatureSensor
+
+
 #define dht
 
 #define DHTTYPE DHT11
@@ -20,8 +24,11 @@ macros and precompilator directives
 #define relayLigth 4//D2
 #define relayThermostat 0//D3
 #define relayFilters 2//D4
-#define waterTemperatureSensor 14 //D5
+#define waterTemperatureSensorPin 14 //D5
 #define DHTPIN 12//D6
+#define turbitySensorPin 13
+#define waterLevelSensorPin 16 //see https://lastminuteengineers.com/water-level-sensor-arduino-tutorial/
+
 
 //relays
 //1 relay for ligth
