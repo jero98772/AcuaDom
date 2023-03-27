@@ -1,4 +1,6 @@
 #include <tools.h>
+#include "constants_defines.h"
+
 int tools::ctoi(char x){
 	return x - '0';
 }

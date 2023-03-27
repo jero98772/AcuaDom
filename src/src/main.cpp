@@ -1,4 +1,8 @@
-#include <Arduino.h>
+#pragma once
+#include "lights.h"
+#include "relays.h"
+#include "sensors.h"
+#include "tools.h"
 /*void recivemsg(){
   while (Serial.available() == 0) {
     String dat=Serial.readString();
@@ -7,7 +11,7 @@
     }
   }*/
 void setup() {
-  
+  Serial.begin(115200);
 }
 
 void loop() {

@@ -12,7 +12,7 @@ we goint to change board to esp32, with new pins , we need change to new pins
 
 
 */
-long time=0;
+//long long owntime=0;
 #define lampType "simple"//there diferents types of ligth for difetent acuariums, types are marine,planted or simples
 #define PINSTRIP1 1
 #define PINSTRIP2 3
@@ -22,19 +22,22 @@ long time=0;
 #define waterTemperatureSensor
 #define waterTemperatureSensor
 
-
-#define dht
+//#define dhtsensor
 
 #define DHTTYPE DHT11
 
-#define relayLigth 4//D2
-#define relayThermostat 0//D3
-#define relayFilters 2//D4
-#define waterTemperatureSensorPin 14 //D5
-#define DHTPIN 12//D6
+#define DHTPIN 2
+#define relayLigth 0//D2
+#define relayThermostat 7//D3
+#define relayFilters 3//D4
+#define waterTemperatureSensorPin 4 //D5
 #define turbitySensorPin 13
-#define waterLevelSensorPin 16 //see https://lastminuteengineers.com/water-level-sensor-arduino-tutorial/
+#define waterLevelSensorPin 14 //see https://lastminuteengineers.com/water-level-sensor-arduino-tutorial/
 
+#define hour6 21600
+#define hour10 36000
+#define hour14 50400
+#define hour18 64800
 
 //relays
 //1 relay for ligth

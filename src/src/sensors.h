@@ -12,11 +12,11 @@ public:
     ~sensors();
     float floatdhtTemperatureGetCelcius();
     float floatdhtTemperatureGetFahrenheit();
-    short int dhtHumidityGet();
     float waterTemperatureGet();
-    short int turbityGetAnalog();
-    short int turbityGetDigital();
-    //water level
+    unsigned short int dhtHumidityGet();
+    unsigned short int turbityGetAnalog();
+    unsigned short int turbityGetDigital();
+    unsigned short int waterLevelSensorGet();
     //clock
 };
 

@@ -1,10 +1,15 @@
 * notes
 proyect fishtank with
+** relay controls
+ligths
+filter
+termostats
 ** sensors
 turbity (tocheck)
 level
 clock
-temperature (ok)
+temperature dht (ok)
+tempertature termocupla (ok)
 ** ligths
 day ligths and nigth
 brigth controler
