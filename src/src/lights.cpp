@@ -38,7 +38,9 @@ void lights::nightLigth(){
     changeColorAlter2colors(strip2.Color(255,255,255),strip2.Color (0,0,255),strip2,2);
     changeColor(strip1.Color(255,255,255), strip1); 
 }
-void lights::complateCicle(){}
+void lights::complateCicle(){
+
+}
 void lights::changeColor(uint32_t color, Adafruit_NeoPixel strip){
   for(int i=0; i<strip.numPixels(); i++) { 
     strip.setPixelColor(i, color);         
@@ -51,5 +53,15 @@ void lights::changeColorAlter2colors(uint32_t color1,uint32_t color2, Adafruit_N
     else strip.setPixelColor(i, color2);
     strip.show();
   }
+}
+void lights::turnOff(){
+	strip1.setBrightness(0);
+  strip2.setBrightness(0);
+  changeColor(strip1.Color(0,0,0), strip1);  
+  changeColor(strip2.Color(0,0,0), strip2);  
+}
+void lights::turnOn(){
+
+  
 }
 

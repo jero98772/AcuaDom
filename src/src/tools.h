@@ -4,8 +4,8 @@
 
 class tools{
 public:
-	int ctoi(char x);//convert char to integer
-	int timetototalSeconds(String time);
+	static short int ctoi(char x);//convert char to integer
+	static long timetototalSeconds(String time);
 };
 
 

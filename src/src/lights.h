@@ -3,8 +3,7 @@
 #include <Adafruit_NeoPixel.h>
 #include "constants_defines.h"
 
-class lights
-{
+class lights{
 private:
     void changeColor(uint32_t color, Adafruit_NeoPixel strip);
     void changeColorAlter2colors(uint32_t color1,uint32_t color2, Adafruit_NeoPixel strip,int step);
@@ -16,8 +15,8 @@ public:
     void afternoonLigth();
     void nightLigth();
     void complateCicle();
-    //void turnOff();
-    //void turnOn();
+    void turnOff();
+    void turnOn();
     //turn on at, turn off at set methots
 };
 
