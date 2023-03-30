@@ -38,8 +38,13 @@ void lights::nightLigth(){
     changeColorAlter2colors(strip2.Color(255,255,255),strip2.Color (0,0,255),strip2,2);
     changeColor(strip1.Color(255,255,255), strip1); 
 }
-void lights::complateCicle(){
-
+void lights::complateCicle(long time){
+  //debug this function
+  if(time>hour6 && time<hour10) this->morningLigth();
+  else if(time>hour10 && time<hour14) this->noonLigth();
+  else if(time>hour14 && time<hour18) this->afternoonLigth();
+  else if(time>hour18 && time<hour21) this->nightLigth();
+  else if(time<hour6 || time>hour21) this->turnOff();
 }
 void lights::changeColor(uint32_t color, Adafruit_NeoPixel strip){
   for(int i=0; i<strip.numPixels(); i++) { 
@@ -61,7 +66,13 @@ void lights::turnOff(){
   changeColor(strip2.Color(0,0,0), strip2);  
 }
 void lights::turnOn(){
-
-  
+    strip1.begin();
+    strip2.begin();
+    strip1.setBrightness(50);
+    strip2.setBrightness(50);
+    strip1.show(); // Initialize all pixels to 'off'
+    strip2.show();
+    changeColor(strip1.Color(255,255,255), strip1);  
+    changeColor(strip2.Color(255,255,255), strip2);  
 }
 

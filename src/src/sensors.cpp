@@ -45,7 +45,7 @@ unsigned short int sensors::waterLevelSensorGet(){
 }
 
 #ifdef turbitydigital
-unsigned short int sensors::turbityGetDigital(){
+unsigned short int sensors::turbityGet(){
   if(digitalRead(sensor_in)==HIGH){       //read sensor signal
     return 1;
   }
@@ -54,7 +54,7 @@ unsigned short int sensors::turbityGetDigital(){
   }
 }
 #else
-unsigned short int sensors::turbityGetAnalog(){
+unsigned short int sensors::turbityGet(){
   int sensorValue = analogRead(waterTemperatureSensorPin);// read the input on analog pin 0:
   float voltage = sensorValue * (5.0 / 1024.0); // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
   float porcent=(voltage*100)/5;

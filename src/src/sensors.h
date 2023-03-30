@@ -14,8 +14,7 @@ public:
     float floatdhtTemperatureGetFahrenheit();
     float waterTemperatureGet();
     unsigned short int dhtHumidityGet();
-    unsigned short int turbityGetAnalog();
-    unsigned short int turbityGetDigital();
+    unsigned short int turbityGet();
     unsigned short int waterLevelSensorGet();
     //clock
 };

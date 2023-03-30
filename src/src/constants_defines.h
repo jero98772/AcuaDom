@@ -23,7 +23,7 @@ we goint to change board to esp32, with new pins , we need change to new pins
 #define hour10 36000
 #define hour14 50400
 #define hour18 64800
-
+#define hour21 75600
 
 
 #define waterTemperatureSensor
