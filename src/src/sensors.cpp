@@ -15,6 +15,7 @@ sensors::sensors(){
   dht.begin();
 
 }
+sensors::~sensors(){}
 unsigned short int sensors::dhtHumidityGet(){
     short int data; 
     if(!isnan(dht.readHumidity())) data= dht.readHumidity();

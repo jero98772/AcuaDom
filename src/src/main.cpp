@@ -16,25 +16,25 @@ relays relay;
 
 void options(String input){
   if(input=="on"){
-      relay.turnOnAll()
+      relay.turnOnAll();
   }else if(input=="off"){
-    relay.turnOffAll()
+    relay.turnOffAll();
   }
   else if(input=="onligths"){
-    relay.turnOnligths()
-    light.turnOn()
+    relay.turnOnligths();
+    light.turnOn();
   }else if(input=="offligths"){
-    relay.turnOffligths()
-    light.turnOff()
+    relay.turnOffligths();
+    light.turnOff();
   }
   else if(input=="onfilters"){
-    relay.turnOnFilters()
+    relay.turnOnFilters();
   }else if(input=="offfilters"){
-    relay.turnOffFilters()
+    relay.turnOffFilters();
   }else if(input=="onthermostat"){
-    relay.turnOnThermostat()
+    relay.turnOnThermostat();
   }else if(input=="offthermostat"){
-    relay.turnOffThermostat()
+    relay.turnOffThermostat();
   }
 
 }
@@ -55,8 +55,8 @@ void showData(){
 void setup() {
   Serial.begin(115200);
   wifiManager.autoConnect(SSID);
-  relay.turnOnAll()
-  light.turnOn()
+  relay.turnOnAll();
+  light.turnOn();
 }
 
 void loop() {
@@ -66,7 +66,7 @@ void loop() {
       long mytime=tools::timetototalSeconds(input);
       Serial.print(mytime);
   }
-  options(input)
+  options(input);
   delay(99);
   mytime++;
   // put your main code here, to run repeatedly:
