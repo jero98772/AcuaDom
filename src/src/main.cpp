@@ -3,13 +3,13 @@
 #include "relays.h"
 #include "sensors.h"
 #include "tools.h"
-#include <WiFiManager.h>  
+//#include <WiFiManager.h>  
 #include "constants_defines.h"
 
 long  mytime=0L;
 const char* SSID = "ACUADOOM";
 
-WiFiManager wifiManager;
+//WiFiManager wifiManager;
 lights light;
 sensors sensor;
 relays relay;
@@ -54,7 +54,7 @@ void showData(){
 
 void setup() {
   Serial.begin(115200);
-  wifiManager.autoConnect(SSID);
+  //wifiManager.autoConnect(SSID);
   relay.turnOnAll();
   light.turnOn();
 }
