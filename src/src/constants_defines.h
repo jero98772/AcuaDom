@@ -32,15 +32,16 @@ we goint to change board to esp32, with new pins , we need change to new pins
 
 #define DHTTYPE DHT11
 
-#define relayLigth 2//D2
-#define relayThermostat 4//D4
-#define relayFilters 5//D5
-#define DHTPIN 13 //D2
-#define waterTemperatureSensorPin 14//D5
-#define turbitySensorPin 15
-#define waterLevelSensorPin 16 //see https://lastminuteengineers.com/water-level-sensor-arduino-tutorial/
-#define PINSTRIP1 17
-#define PINSTRIP2 18
+
+#define relayLigth 2//D2 //fixed
+#define relayThermostat 4//D4 //fixed 
+#define relayFilters 15//D15 //fixed
+#define DHTPIN 13 //D13 //fixed
+#define waterTemperatureSensorPin 14//D14 
+#define turbitySensorPin 34 //d34 //fixed
+#define waterLevelSensorPin 15 //D16//see https://lastminuteengineers.com/water-level-sensor-arduino-tutorial/
+#define PINSTRIP1 19 //D19
+#define PINSTRIP2 18 //D18
 
 
 
