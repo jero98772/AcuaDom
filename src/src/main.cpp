@@ -40,30 +40,32 @@ void options(String input){
 }
 void showData(){
   Serial.println("Humidty of the room");
-  Serial.print(sensor.dhtHumidityGet());
+  Serial.println(sensor.dhtHumidityGet());
   Serial.println("Temperature on Celcius of the room");
-  Serial.print(sensor.floatdhtTemperatureGetCelcius());
+  Serial.println(sensor.dhtTemperatureGetCelcius());
   Serial.println("Water temperature");
-  Serial.print(sensor.waterTemperatureGet());
+  Serial.println(sensor.waterTemperatureGet());
   Serial.println("Water Level");
-  Serial.print(sensor.waterLevelSensorGet());
+  Serial.println(sensor.waterLevelSensorGet());
   Serial.println("Turbity of Water");
   Serial.print(sensor.turbityGet());
-
 }
-
 void setup() {
   Serial.begin(115200);
   conected=net.wifimanager();
-  //wifiManager.autoConnect(SSID);
+  net.webServerSetup();
   relay.turnOnAll();
   light.turnOn();
+  light.complateCicle(net.getTime());
 }
 
 void loop() {
   String mytime = net.getTime();
-  Serial.print(mytime);
+  Serial.println("Time:");
+  Serial.println(mytime);
   showData();
+  light.complateCicle(mytime);
+  net.webServerRun();
   delay(1000);
   // put your main code here, to run repeatedly:
 }

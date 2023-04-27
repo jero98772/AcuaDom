@@ -8,7 +8,8 @@ private:
 public:
 	networking();
 	~networking();
-	void webserver();
+	void webServerSetup();
+	void webServerRun();
 	bool wifimanager();
 	String getTime();
 };

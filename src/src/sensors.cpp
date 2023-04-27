@@ -23,14 +23,14 @@ unsigned short int sensors::dhtHumidityGet(){
     return data;
 }
 
-float sensors::floatdhtTemperatureGetCelcius(){
+float sensors::dhtTemperatureGetCelcius(){
     float data; 
     if(!isnan(dht.readTemperature())) data= dht.readTemperature();
     else data=-1.0; 
     return data;
 }
 
-float sensors::floatdhtTemperatureGetFahrenheit(){
+float sensors::dhtTemperatureGetFahrenheit(){
     float data; 
     if(!isnan(dht.readTemperature())) data= dht.readTemperature(true);
     else data=-1.0; 
