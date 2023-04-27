@@ -2,18 +2,18 @@
 #include "lights.h"
 #include "relays.h"
 #include "sensors.h"
+#include "networking.h"
 #include "tools.h"
 //#include <WiFiManager.h>  
 #include "constants_defines.h"
 
 long  mytime=0L;
-const char* SSID = "ACUADOOM";
-
+bool conected=false;
 //WiFiManager wifiManager;
 lights light;
 sensors sensor;
 relays relay;
-
+networking net;
 void options(String input){
   if(input=="on"){
       relay.turnOnAll();
@@ -54,20 +54,16 @@ void showData(){
 
 void setup() {
   Serial.begin(115200);
+  conected=net.wifimanager();
   //wifiManager.autoConnect(SSID);
   relay.turnOnAll();
   light.turnOn();
 }
 
 void loop() {
-  String input = Serial.readString();
-  input.trim();
-  if(input[2]==':'){
-      long mytime=tools::timetototalSeconds(input);
-      Serial.print(mytime);
-  }
-  options(input);
-  delay(99);
-  mytime++;
+  String mytime = net.getTime();
+  Serial.print(mytime);
+  showData();
+  delay(1000);
   // put your main code here, to run repeatedly:
 }

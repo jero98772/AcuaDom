@@ -15,6 +15,7 @@ we goint to change board to esp32, with new pins , we need change to new pins
 
 #define lampType "simple"//there diferents types of ligth for difetent acuariums, types are marine,planted or simples
 
+
 #define NUMPIXELS1 12
 #define NUMPIXELS2 12  
 

@@ -1,6 +1,6 @@
-#include <lights.h>
-#include <Adafruit_NeoPixel.h>
+#include "lights.h"
 #include "constants_defines.h"
+#include <Adafruit_NeoPixel.h>
 
 Adafruit_NeoPixel strip1 = Adafruit_NeoPixel(NUMPIXELS1, PINSTRIP1, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel strip2 = Adafruit_NeoPixel(NUMPIXELS2, PINSTRIP2, NEO_GRB + NEO_KHZ800);
