@@ -51,7 +51,7 @@ void showData(){
   Serial.print(sensor.turbityGet());
 }
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   conected=net.wifimanager();
   net.webServerSetup();
   relay.turnOnAll();

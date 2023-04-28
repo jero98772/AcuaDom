@@ -20,21 +20,24 @@ we goint to change board to esp32, with new pins , we need change to new pins
 #define NUMPIXELS2 24 
 
 //change it to string
-#define hour6 21600
-#define hour10 36000
-#define hour14 50400
-#define hour18 64800
-#define hour21 75600
 
-
-#define waterTemperatureSensor
-#define waterTemperatureSensor
-
+//#define turbitydigital
 //#define dhtsensor
 
 #define DHTTYPE DHT11
 
 
+
+#define relayLigth 2//D2 
+#define relayThermostat 4//D4 
+#define relayFilters 5//D5 
+#define DHTPIN 13 //D13 //fixed
+#define waterTemperatureSensorPin 21//D21
+#define turbitySensorPin 34 //d34 //fixed
+#define waterLevelSensorPin 35 //D16//see https://lastminuteengineers.com/water-level-sensor-arduino-tutorial/
+#define PINSTRIP1 19 //D19
+#define PINSTRIP2 18 //D18
+/*
 #define relayLigth 2//D2 //fixed
 #define relayThermostat 4//D4 //fixed 
 #define relayFilters 15//D15 <-- change 
@@ -45,13 +48,10 @@ we goint to change board to esp32, with new pins , we need change to new pins
 #define PINSTRIP1 19 //D19
 #define PINSTRIP2 18 //D18
 
-
-
-//relays
-//1 relay for ligth
-//1 relay for thermostat
-//1 relay for filters
-
+*/
 
 #endif
 
+/*
+
+*/

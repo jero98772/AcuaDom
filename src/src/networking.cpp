@@ -2,6 +2,7 @@
 #include "constants_defines.h"
 #include "time.h"
 #include "sensors.h"
+#include "relays.h"
 #include <WiFi.h>
 #include <WebServer.h>
 #include <WiFiManager.h>
@@ -11,8 +12,10 @@ const long  gmtOffset_sec = -18000;
 const int   daylightOffset_sec = 0;
 
 WebServer server(80);
+relays relayNet;
 
-String SendHTML() {
+
+String SendHTML(String txt="") {
   sensors sensor;
   String humidity = String(sensor.dhtHumidityGet());
   String farenhit = String(sensor.dhtTemperatureGetFahrenheit());
@@ -40,6 +43,20 @@ String SendHTML() {
   ptr += waterTemperatureC;
   ptr += "<br><b>Nivel de agua</b>\n";
   ptr += waterLevel;
+  ptr += "<hr><br><h3>Control dispositivos</h3>\n";
+  ptr += "<br><b>Filtro</b>\n";
+  ptr += "<br><a href='/filterOn'><button type='button'>Filtro ON</button></a>\n";
+  ptr += "<a href='/filterOff'><button type='button'>Filtro OFF</button></a>\n";
+  ptr += "<br><b>Luz Externa</b>\n";
+  ptr += "<br><a href='/ligthOn'><button type='button'>luz ON</button></a>\n";
+  ptr += "<a href='/ligthOff'><button type='button'>Luz OFF</button></a>\n";
+  ptr += "<br><b>Termostato</b>\n";
+  ptr += "<br><a href='/thermostatOn'><button type='button'>Termostato ON</button></a>\n";
+  ptr += "<a href='/thermostatOff'><button type='button'>Termostato OFF</button></a>\n";
+  ptr += "<br><b>Todos los dispostivos</b>\n";
+  ptr += "<br><a href='/turnOn'><button type='button'>Encender Todo</button></a>\n";
+  ptr += "<a href='/turnOff'><button type='button'>Apagar Todo</button></a>\n";
+  ptr += txt;
   ptr += "</body>\n";
   ptr += "</html>\n";
   return ptr;
@@ -50,13 +67,45 @@ void handle_OnConnect() {
 void handle_NotFound() {
   server.send(404, "text/plain", "La pagina no existe");
 }
+void filterOn() {
+  relayNet.turnOnFilters();
+  server.send(200, "text/html", SendHTML("<br>Filtro encendida")); 
+}
+void filterOff() {
+  relayNet.turnOffFilters();
+  server.send(200, "text/html", SendHTML("<br>Filtro apagado")); 
+}
 
+void ligthOn() {
+  relayNet.turnOnFilters();
+  server.send(200, "text/html", SendHTML("<br>Luz encendida")); 
+}
+void ligthOff() {
+  relayNet.turnOffFilters();
+  server.send(200, "text/html", SendHTML("<br>Luz apagado")); 
+}
+void turnOnThermostat() {
+  relayNet.turnOnThermostat();
+  server.send(200, "text/html", SendHTML("<br>Termostato encendido")); 
+}
+void turnOffThermostat() {
+  relayNet.turnOffFilters();
+  server.send(200, "text/html", SendHTML("<br>Termostato apagado")); 
+}
+void allOn() {
+  relayNet.turnOnAll();
+  server.send(200, "text/html", SendHTML("<br>Todo fue encendido")); 
+}
+void allOff() {
+  relayNet.turnOffAll();
+  server.send(200, "text/html", SendHTML("<br>Todo fue apagado")); 
+}
 networking::networking(){}
 networking::~networking(){}
 bool networking::wifimanager(){
 	WiFi.mode(WIFI_STA);
 	WiFiManager wm;
-	wm.resetSettings();
+	//wm.resetSettings();
 	bool res = wm.autoConnect("ACUADOMCONECT");
 	if(res) {
 		Serial.print("Conected to wifi");
@@ -81,6 +130,14 @@ String networking::getTime(){
 void networking::webServerSetup(){
 	
 server.on("/", handle_OnConnect);
+server.on("/filterOn", filterOn);
+server.on("/filterOff", filterOff);
+server.on("/ligthOn", ligthOn);
+server.on("/ligthOff", ligthOff);
+server.on("/thermostatOn", turnOnThermostat);
+server.on("/thermostatOff", turnOffThermostat);
+server.on("/turnOn", allOn);
+server.on("/turnOff", allOff);
 server.onNotFound(handle_NotFound);
 server.begin();
 }
