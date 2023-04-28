@@ -59,4 +59,4 @@ Contributions are welcome! If you would like to contribute to Acuadom, please fo
 - Iot conectivity with ubidots
 
 ## Credits
-Acuadom was developed by jero98772, with the help of Sara Domingez, and Camilo. The code is licensed under the GPL3 License.
+Acuadom was developed by jero98772, with the help of Sara Domingez, and Checho. The code is licensed under the GPL3 License.
