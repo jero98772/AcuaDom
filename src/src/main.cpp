@@ -3,11 +3,8 @@
 #include "relays.h"
 #include "sensors.h"
 #include "networking.h"
-#include "tools.h"
 //#include <WiFiManager.h>  
 #include "constants_defines.h"
-
-long  mytime=0L;
 bool conected=false;
 //WiFiManager wifiManager;
 lights light;
@@ -29,7 +26,9 @@ void showData(){
 void setup() {
   Serial.begin(9600);
   conected=net.wifimanager();
-  net.webServerSetup();
+  if(conected){
+    net.webServerSetup();
+  }
   relay.turnOnAll();
   light.turnOn();
   light.complateCicle(net.getTime());
