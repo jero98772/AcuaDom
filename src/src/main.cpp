@@ -14,30 +14,6 @@ lights light;
 sensors sensor;
 relays relay;
 networking net;
-void options(String input){
-  if(input=="on"){
-      relay.turnOnAll();
-  }else if(input=="off"){
-    relay.turnOffAll();
-  }
-  else if(input=="onligths"){
-    relay.turnOnligths();
-    light.turnOn();
-  }else if(input=="offligths"){
-    relay.turnOffligths();
-    light.turnOff();
-  }
-  else if(input=="onfilters"){
-    relay.turnOnFilters();
-  }else if(input=="offfilters"){
-    relay.turnOffFilters();
-  }else if(input=="onthermostat"){
-    relay.turnOnThermostat();
-  }else if(input=="offthermostat"){
-    relay.turnOffThermostat();
-  }
-
-}
 void showData(){
   Serial.println("Humidty of the room");
   Serial.println(sensor.dhtHumidityGet());
@@ -48,7 +24,7 @@ void showData(){
   Serial.println("Water Level");
   Serial.println(sensor.waterLevelSensorGet());
   Serial.println("Turbity of Water");
-  Serial.print(sensor.turbityGet());
+  Serial.println(sensor.turbityGet());
 }
 void setup() {
   Serial.begin(9600);

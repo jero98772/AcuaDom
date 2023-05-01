@@ -34,7 +34,7 @@ we goint to change board to esp32, with new pins , we need change to new pins
 #define DHTPIN 13 //D13 //fixed
 #define waterTemperatureSensorPin 21//D21
 #define turbitySensorPin 34 //d34 //fixed
-#define waterLevelSensorPin 35 //D16//see https://lastminuteengineers.com/water-level-sensor-arduino-tutorial/
+#define waterLevelSensorPin 35 //see https://lastminuteengineers.com/water-level-sensor-arduino-tutorial/
 #define PINSTRIP1 19 //D19
 #define PINSTRIP2 18 //D18
 /*
