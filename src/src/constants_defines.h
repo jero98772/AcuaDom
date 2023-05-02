@@ -8,6 +8,7 @@
 
 //#define turbitydigital
 //#define dhtsensor
+//#define NOFIXWIFI
 
 #define DHTTYPE DHT11
 

@@ -3,10 +3,11 @@
 #include "relays.h"
 #include "sensors.h"
 #include "networking.h"
-//#include <WiFiManager.h>  
 #include "constants_defines.h"
+#ifndef NOFIXWIFI
+#include "WiFi.h"
+#endif
 bool conected=false;
-//WiFiManager wifiManager;
 lights light;
 sensors sensor;
 relays relay;
@@ -25,10 +26,19 @@ void showData(){
 }
 void setup() {
   Serial.begin(9600);
+  #ifdef NOFIXWIFI
   conected=net.wifimanager();
   if(conected){
     net.webServerSetup();
   }
+  #else
+  WiFi.begin("ssid", "12345678");
+  Serial.println("\nConnecting");
+  while(WiFi.status() != WL_CONNECTED){
+    Serial.print(".");
+    delay(100);
+  }
+  #endif
   relay.turnOnAll();
   light.turnOn();
   light.complateCicle(net.getTime());
@@ -42,5 +52,4 @@ void loop() {
   light.complateCicle(mytime);
   net.webServerRun();
   delay(1000);
-  // put your main code here, to run repeatedly:
 }

@@ -4,8 +4,11 @@
 #include "sensors.h"
 #include "relays.h"
 #include <WiFi.h>
+
 #include <WebServer.h>
+#ifdef NOFIXWIFI
 #include <WiFiManager.h>
+#endif
 
 const char* ntpServer = "pool.ntp.org";
 const long  gmtOffset_sec = -18000;
@@ -102,6 +105,7 @@ void allOff() {
 }
 networking::networking(){}
 networking::~networking(){}
+#ifdef NOFIXWIFI
 bool networking::wifimanager(){
 	WiFi.mode(WIFI_STA);
 	WiFiManager wm;
@@ -115,6 +119,7 @@ bool networking::wifimanager(){
 		return false;
 	}
 }
+#endif
 String networking::getTime(){
    configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
   struct tm timeinfo;
