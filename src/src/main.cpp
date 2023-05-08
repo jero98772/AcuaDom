@@ -48,10 +48,10 @@ void showData(){
   Serial.println("Water Level");
   Serial.println(sensor.waterLevelSensorGet());
   Serial.println("Turbity of Water");
-  Serial.print(sensor.turbityGet());
+  Serial.println(sensor.turbityGet());
 }
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   conected=net.wifimanager();
   net.webServerSetup();
   relay.turnOnAll();
