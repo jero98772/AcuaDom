@@ -1,6 +1,5 @@
 #include "sensors.h"
 #include "constants_defines.h"
-
 #include <DallasTemperature.h>
 #include <Wire.h>
 #include <DHT.h>
@@ -10,7 +9,7 @@ OneWire oneWire(waterTemperatureSensorPin);
 DallasTemperature waterTempSensor(&oneWire);
 //if macro of sensor set to digital 
 #ifdef turbitydigital
-pinMode(turbitySensorPin, INPUT);
+pinMode(waterTemperatureSensorPin, INPUT);
 #endif
 sensors::sensors(){
   dht.begin();
@@ -48,7 +47,7 @@ unsigned short int sensors::waterLevelSensorGet(){
 
 #ifdef turbitydigital
 unsigned short int sensors::turbityGet(){
-  if(digitalRead(turbitySensorPin)==HIGH){       //read sensor signal
+  if(digitalRead(sensor_in)==HIGH){       //read sensor signal
     return 1;
   }
   else{
@@ -57,7 +56,7 @@ unsigned short int sensors::turbityGet(){
 }
 #else
 unsigned short int sensors::turbityGet(){
-  int sensorValue = analogRead(turbitySensorPin);// read the input on analog pin 0:
+  int sensorValue = analogRead(waterTemperatureSensorPin);// read the input on analog pin 0:
   float voltage = sensorValue * (5.0 / 1024.0); // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
   float porcent=(voltage*100)/5;
   return  porcent;

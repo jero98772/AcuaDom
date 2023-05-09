@@ -1,6 +1,6 @@
 # AcuaDom (in procces)
 
-![](https://raw.githubusercontent.com/jero98772/AcuaDom/main/docs/logo.png)
+![](https://github.com/jero98772/AcuaDom/blob/firstPrototype/docs/images/logo.png?raw=true)
 
 Acuadom is a domotic fishtank system that provides an automated control for various aspects of a fishtank. The system is built using C++ and PlatformIO, and utilizes various sensors and relays to monitor and control the environment of the fishtank. It is developed for ESP32 board with Bluetooth connectivity and is licensed under GPL3.
 

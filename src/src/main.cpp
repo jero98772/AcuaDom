@@ -6,13 +6,38 @@
 #include "tools.h"
 //#include <WiFiManager.h>  
 #include "constants_defines.h"
-int timetmp=0;
+
+long  mytime=0L;
 bool conected=false;
 //WiFiManager wifiManager;
 lights light;
 sensors sensor;
 relays relay;
 networking net;
+void options(String input){
+  if(input=="on"){
+      relay.turnOnAll();
+  }else if(input=="off"){
+    relay.turnOffAll();
+  }
+  else if(input=="onligths"){
+    relay.turnOnligths();
+    light.turnOn();
+  }else if(input=="offligths"){
+    relay.turnOffligths();
+    light.turnOff();
+  }
+  else if(input=="onfilters"){
+    relay.turnOnFilters();
+  }else if(input=="offfilters"){
+    relay.turnOffFilters();
+  }else if(input=="onthermostat"){
+    relay.turnOnThermostat();
+  }else if(input=="offthermostat"){
+    relay.turnOffThermostat();
+  }
+
+}
 void showData(){
   Serial.println("Humidty of the room");
   Serial.println(sensor.dhtHumidityGet());
@@ -31,6 +56,7 @@ void setup() {
   net.webServerSetup();
   relay.turnOnAll();
   light.turnOn();
+  light.complateCicle(net.getTime());
 }
 
 void loop() {
@@ -38,14 +64,7 @@ void loop() {
   Serial.println("Time:");
   Serial.println(mytime);
   showData();
-  int time=(mytime[0]-'0')*10+(mytime[1]-'0');
-  Serial.println("Time int hour");
-  Serial.println(time);
-  if(timetmp!=time){
-      //light.complateCicle(time);
-      timetmp=time;
-      delay(1000);
-  }
+  light.complateCicle(mytime);
   net.webServerRun();
   delay(1000);
   // put your main code here, to run repeatedly:

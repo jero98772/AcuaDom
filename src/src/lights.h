@@ -5,8 +5,8 @@
 
 class lights{
 private:
-    //void changeColor(uint32_t color, Adafruit_NeoPixel strip);
-    //void changeColorAlter2colors(uint32_t color1,uint32_t color2, Adafruit_NeoPixel strip,int step);
+    void changeColor(uint32_t color, Adafruit_NeoPixel strip);
+    void changeColorAlter2colors(uint32_t color1,uint32_t color2, Adafruit_NeoPixel strip,int step);
 public:
     lights();
     ~lights();
@@ -14,8 +14,7 @@ public:
     void noonLigth();
     void afternoonLigth();
     void nightLigth();
-    void complateCicle(int time);
-
+    void complateCicle(String time);
     void turnOff();
     void turnOn();
     //turn on at, turn off at set methots
