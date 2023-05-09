@@ -6,8 +6,9 @@ Acuadom is a domotic fishtank system that provides an automated control for vari
 
 ## Shcema
 
-![]()
+![Shema](https://raw.githubusercontent.com/jero98772/AcuaDom/main/docs/images/Schema.jpeg)
 
+(neo pixels ring not are working in this version that is the reason becuase they are disconected of data and voltage)
 
 ## Features
 
@@ -47,8 +48,11 @@ you can use pio run
 
 Once the code has been uploaded to the ESP32 board, the system will start monitoring and controlling the fishtank environment. The system provides various modes for the Neo Pixel LEDs, which can be controlled using a Bluetooth connection and a mobile application.
 
-(we are develoment an wifi conecty)
+to conect to network go to wifi you will be see a network name "ACUADOOM" and conect to that network in captive portal 
 
+put your wifi name and password, next you need to search the ip of esp32 in your network and conect to them to see the variables like water temperature, water level, humidity, temperature of room, turbity and you can control relays in that web page.
+
+or you can conect via bluethoot to HC-06 with app Arduino Bluethoot
 
 ## Contributing
 Contributions are welcome! If you would like to contribute to Acuadom, please fork the repository and submit a pull request with your changes.
@@ -59,7 +63,15 @@ Contributions are welcome! If you would like to contribute to Acuadom, please fo
 
 ## Photos
 
+![](https://raw.githubusercontent.com/jero98772/AcuaDom/main/docs/images/acuarium1.jpeg)
 
+![](https://raw.githubusercontent.com/jero98772/AcuaDom/main/docs/images/acuarium2.jpeg)
+
+![](https://github.com/jero98772/AcuaDom/blob/main/docs/images/appbluethoot.jpeg)
+
+![](https://raw.githubusercontent.com/jero98772/AcuaDom/main/docs/images/wifimanager.jpeg)
+
+![](https://github.com/jero98772/AcuaDom/blob/main/docs/images/wifiwebserver.jpeg)
 
 ## Credits
 Acuadom was developed by jero98772, with the help of Sara Domingez,Camilo and Checho. The code is licensed under the GPL3 License.
