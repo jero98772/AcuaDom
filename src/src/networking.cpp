@@ -13,9 +13,8 @@ const int   daylightOffset_sec = 0;
 
 WebServer server(80);
 relays relayNet;
+String SendHTML() {
 
-
-String SendHTML(String txt="") {
   sensors sensor;
   String humidity = String(sensor.dhtHumidityGet());
   String farenhit = String(sensor.dhtTemperatureGetFahrenheit());
@@ -56,11 +55,45 @@ String SendHTML(String txt="") {
   ptr += "<br><b>Todos los dispostivos</b>\n";
   ptr += "<br><a href='/turnOn'><button type='button'>Encender Todo</button></a>\n";
   ptr += "<a href='/turnOff'><button type='button'>Apagar Todo</button></a>\n";
-  ptr += txt;
   ptr += "</body>\n";
   ptr += "</html>\n";
   return ptr;
 }
+
+void filterOn() {
+  relayNet.turnOnFilters();
+  server.send(200, "text/html", SendHTML()); 
+}
+void filterOff() {
+  relayNet.turnOffFilters();
+  server.send(200, "text/html", SendHTML()); 
+}
+
+void ligthOn() {
+  relayNet.turnOnFilters();
+  server.send(200, "text/html", SendHTML()); 
+}
+void ligthOff() {
+  relayNet.turnOffFilters();
+  server.send(200, "text/html", SendHTML()); 
+}
+void turnOnThermostat() {
+  relayNet.turnOnThermostat();
+  server.send(200, "text/html", SendHTML()); 
+}
+void turnOffThermostat() {
+  relayNet.turnOffFilters();
+  server.send(200, "text/html", SendHTML()); 
+}
+void allOn() {
+  relayNet.turnOnAll();
+  server.send(200, "text/html", SendHTML()); 
+}
+void allOff() {
+  relayNet.turnOffAll();
+  server.send(200, "text/html", SendHTML()); 
+}
+
 void handle_OnConnect() {
   server.send(200, "text/html", SendHTML()); 
 }
@@ -124,6 +157,7 @@ String networking::getTime(){
   }
   char timeHourMin[6];
   strftime(timeHourMin,6, "%H:%M", &timeinfo);
+  Serial.println(timeHourMin);
   return timeHourMin;
 
 }

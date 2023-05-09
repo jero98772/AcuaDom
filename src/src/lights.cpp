@@ -51,18 +51,33 @@ void nightLigth(){
     changeColorAlter2colors(strip2.Color(255,255,255),strip2.Color (0,0,255),strip2,2);
     changeColor(strip1.Color(255,255,255), strip1); 
 }
-void lights::complateCicle(String timeS){
-  int hour6=6;
-  int hour10=10;
-  int hour14=14;
-  int hour18=18;
-  int hour21=21;
-  int time=(timeS[0]-'0')*10+(timeS[1]-'0');
-  if(time>hour6 && time<hour10) morningLigth();
-  else if(time>hour10 && time<hour14) noonLigth();
-  else if(time>hour14 && time<hour18) afternoonLigth();
-  else if(time>hour18 && time<hour21) nightLigth();
-  else if(time<hour6 || time>hour21) turnOff();
+void lights::complateCicle(int time){
+  //debug this function
+  //debug this function
+  Serial.println("Time int");
+  Serial.println(time);
+  if(time>=6 && time<10) this->morningLigth();
+  else if(time>=10 && time<14) this->noonLigth();
+  else if(time>=14 && time<18) this->afternoonLigth();
+  else if(time>18 && time<21) this->nightLigth();
+  else if(time<6 || time>21) this->turnOff();
+  return;
+}
+void lights::changeColor(uint32_t color, Adafruit_NeoPixel strip){
+  for(int i=0; i<strip.numPixels(); i++) { 
+    strip.setPixelColor(i, color);         
+    strip.show();                          
+  }
+  return;
+}
+void lights::changeColorAlter2colors(uint32_t color1,uint32_t color2, Adafruit_NeoPixel strip,int step){
+  for(int i=0; i<strip.numPixels(); i++) {
+    if(i%step!=0) strip.setPixelColor(i, color1);
+    else strip.setPixelColor(i, color2);
+    strip.show();
+  }
+  return;
+
 }
 
 void lights::turnOff(){

@@ -6,8 +6,7 @@
 #include "tools.h"
 //#include <WiFiManager.h>  
 #include "constants_defines.h"
-
-long  mytime=0L;
+int timetmp=0;
 bool conected=false;
 //WiFiManager wifiManager;
 lights light;
@@ -32,7 +31,6 @@ void setup() {
   net.webServerSetup();
   relay.turnOnAll();
   light.turnOn();
-  light.complateCicle(net.getTime());
 }
 
 void loop() {
@@ -40,7 +38,14 @@ void loop() {
   Serial.println("Time:");
   Serial.println(mytime);
   showData();
-  light.complateCicle(mytime);
+  int time=(mytime[0]-'0')*10+(mytime[1]-'0');
+  Serial.println("Time int hour");
+  Serial.println(time);
+  if(timetmp!=time){
+      //light.complateCicle(time);
+      timetmp=time;
+      delay(1000);
+  }
   net.webServerRun();
   delay(1000);
   // put your main code here, to run repeatedly:

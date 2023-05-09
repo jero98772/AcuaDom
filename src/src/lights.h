@@ -10,11 +10,12 @@ private:
 public:
     lights();
     ~lights();
-   /* void morningLigth();
+    void morningLigth();
     void noonLigth();
     void afternoonLigth();
-    void nightLigth();*/
-    void complateCicle(String timeS);
+    void nightLigth();
+    void complateCicle(int time);
+
     void turnOff();
     void turnOn();
     //turn on at, turn off at set methots
