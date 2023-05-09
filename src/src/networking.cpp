@@ -105,7 +105,7 @@ networking::~networking(){}
 bool networking::wifimanager(){
 	WiFi.mode(WIFI_STA);
 	WiFiManager wm;
-	wm.resetSettings();
+	//wm.resetSettings();
 	bool res = wm.autoConnect("ACUADOMCONECT");
 	if(res) {
 		Serial.print("Conected to wifi");

@@ -14,7 +14,7 @@ public:
     void noonLigth();
     void afternoonLigth();
     void nightLigth();
-    void complateCicle(String time);
+    void complateCicle(int time);
     void turnOff();
     void turnOn();
     //turn on at, turn off at set methots
