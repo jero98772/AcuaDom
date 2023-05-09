@@ -14,6 +14,7 @@ const int   daylightOffset_sec = 0;
 WebServer server(80);
 relays relayNet;
 String SendHTML() {
+
   sensors sensor;
   String humidity = String(sensor.dhtHumidityGet());
   String farenhit = String(sensor.dhtTemperatureGetFahrenheit());
@@ -99,7 +100,39 @@ void handle_OnConnect() {
 void handle_NotFound() {
   server.send(404, "text/plain", "La pagina no existe");
 }
+void filterOn() {
+  relayNet.turnOnFilters();
+  server.send(200, "text/html", SendHTML("<br>Filtro encendida")); 
+}
+void filterOff() {
+  relayNet.turnOffFilters();
+  server.send(200, "text/html", SendHTML("<br>Filtro apagado")); 
+}
 
+void ligthOn() {
+  relayNet.turnOnFilters();
+  server.send(200, "text/html", SendHTML("<br>Luz encendida")); 
+}
+void ligthOff() {
+  relayNet.turnOffFilters();
+  server.send(200, "text/html", SendHTML("<br>Luz apagado")); 
+}
+void turnOnThermostat() {
+  relayNet.turnOnThermostat();
+  server.send(200, "text/html", SendHTML("<br>Termostato encendido")); 
+}
+void turnOffThermostat() {
+  relayNet.turnOffFilters();
+  server.send(200, "text/html", SendHTML("<br>Termostato apagado")); 
+}
+void allOn() {
+  relayNet.turnOnAll();
+  server.send(200, "text/html", SendHTML("<br>Todo fue encendido")); 
+}
+void allOff() {
+  relayNet.turnOffAll();
+  server.send(200, "text/html", SendHTML("<br>Todo fue apagado")); 
+}
 networking::networking(){}
 networking::~networking(){}
 bool networking::wifimanager(){
@@ -131,6 +164,14 @@ String networking::getTime(){
 void networking::webServerSetup(){
 	
 server.on("/", handle_OnConnect);
+server.on("/filterOn", filterOn);
+server.on("/filterOff", filterOff);
+server.on("/ligthOn", ligthOn);
+server.on("/ligthOff", ligthOff);
+server.on("/thermostatOn", turnOnThermostat);
+server.on("/thermostatOff", turnOffThermostat);
+server.on("/turnOn", allOn);
+server.on("/turnOff", allOff);
 server.onNotFound(handle_NotFound);
 server.begin();
 }
