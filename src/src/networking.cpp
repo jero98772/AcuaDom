@@ -129,10 +129,17 @@ String networking::getTime(){
 
 }
 void networking::webServerSetup(){
-	
-server.on("/", handle_OnConnect);
-server.onNotFound(handle_NotFound);
-server.begin();
+  server.on("/filterOn", filterOn);
+  server.on("/filterOff", filterOff);
+  server.on("/ligthOn", ligthOn);
+  server.on("/ligthOff", ligthOff);
+  server.on("/thermostatOn", turnOnThermostat);
+  server.on("/thermostatOff", turnOffThermostat);
+  server.on("/turnOn", allOn);
+  server.on("/turnOff", allOff);
+  server.on("/", handle_OnConnect);
+  server.onNotFound(handle_NotFound);
+  server.begin();
 }
 void networking::webServerRun(){
 	server.handleClient();
