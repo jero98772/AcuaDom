@@ -20,12 +20,12 @@ void options(String input){
   }else if(input=="off"){
     relay.turnOffAll();
   }
-  else if(input=="onligths"){
-    relay.turnOnligths();
-    light.turnOn();
-  }else if(input=="offligths"){
-    relay.turnOffligths();
-    light.turnOff();
+  else if(input=="onlights"){
+    relay.turnOnlights();
+    //light.turnOn();
+  }else if(input=="offlights"){
+    relay.turnOfflights();
+    //light.turnOff();
   }
   else if(input=="onfilters"){
     relay.turnOnFilters();
@@ -55,8 +55,7 @@ void setup() {
   conected=net.wifimanager();
   net.webServerSetup();
   relay.turnOnAll();
-  light.turnOn();
-  light.complateCicle(net.getTime());
+  //light.complateCicle(net.getTime());
 }
 
 void loop() {
@@ -64,7 +63,7 @@ void loop() {
   Serial.println("Time:");
   Serial.println(mytime);
   showData();
-  light.complateCicle(mytime);
+  //light.complateCicle(mytime);
   net.webServerRun();
   delay(1000);
   // put your main code here, to run repeatedly:

@@ -2,16 +2,16 @@
 #include "constants_defines.h"
 
 relays::relays(){
-    pinMode(relayLigth,OUTPUT);
+    pinMode(relayLight,OUTPUT);
     pinMode(relayThermostat,OUTPUT);
     pinMode(relayFilters,OUTPUT);
 }
 relays::~relays(){}
-void relays::turnOnligths(){
-    digitalWrite(relayLigth,HIGH);
+void relays::turnOnlights(){
+    digitalWrite(relayLight,HIGH);
 }
-void relays::turnOffligths(){
-    digitalWrite(relayLigth,LOW);
+void relays::turnOfflights(){
+    digitalWrite(relayLight,LOW);
 }
 void relays::turnOnFilters(){
     digitalWrite(relayFilters,HIGH);
@@ -26,7 +26,7 @@ void relays::turnOffThermostat(){
     digitalWrite(relayThermostat,LOW);
 }
 void relays::turnOnAll(){
-    digitalWrite(relayLigth,HIGH);
+    digitalWrite(relayLight,HIGH);
     digitalWrite(relayThermostat,HIGH);
     digitalWrite(relayFilters,HIGH);
 }

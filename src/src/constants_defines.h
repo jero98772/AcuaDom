@@ -13,7 +13,7 @@
 //#define dhtsensor
 #define DHTTYPE DHT11
 
-#define relayLigth 2//D2 
+#define relayLight 2//D2 
 #define relayThermostat 4//D4 
 #define relayFilters 5//D5 
 #define DHTPIN 13 //D13 //fixed

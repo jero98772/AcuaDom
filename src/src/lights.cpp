@@ -14,25 +14,25 @@ lights::lights(){
     strip2.show();
 }
 lights::~lights(){}
-void lights::morningLigth(){
+void lights::morningLight(){
     strip1.setBrightness(50);
     strip2.setBrightness(50);
     changeColorAlter2colors(strip2.Color(255,255,255),strip2.Color(0,0,255),strip2,3);
     changeColor(strip1.Color(255,255,255), strip1);    
 }
-void lights::noonLigth(){
+void lights::noonLight(){
     strip1.setBrightness(100);
     strip2.setBrightness(100);
     changeColorAlter2colors(strip2.Color(255,255,255),strip2.Color(0,0,255),strip2,0);
     changeColor(strip1.Color(255,255,255), strip1);  
 }
-void lights::afternoonLigth(){
+void lights::afternoonLight(){
     strip1.setBrightness(75);
     strip2.setBrightness(75);
     changeColorAlter2colors(strip2.Color(255,255,255),strip2.Color (255, 212, 92),strip2,3);
     changeColor(strip1.Color(255,255,255), strip1);  
 }
-void lights::nightLigth(){
+void lights::nightLight(){
     strip1.setBrightness(25);
     strip2.setBrightness(25);
     changeColorAlter2colors(strip2.Color(255,255,255),strip2.Color (0,0,255),strip2,2);
@@ -44,10 +44,10 @@ void lights::complateCicle(String timeS){
   int time=(timeS[0]-'0')*10+(timeS[1]-'0');
   Serial.println("Time int");
   Serial.println(time);
-  /*if(time>6 && time<10) this->morningLigth();
-  else if(time>10 && time<14) this->noonLigth();
-  else if(time>14 && time<18) this->afternoonLigth();
-  else if(time>18 && time<21) this->nightLigth();
+  /*if(time>6 && time<10) this->morningLight();
+  else if(time>10 && time<14) this->noonLight();
+  else if(time>14 && time<18) this->afternoonLight();
+  else if(time>18 && time<21) this->nightLight();
   else if(time<6 || time>21) this->turnOff();*/
 }
 void lights::changeColor(uint32_t color, Adafruit_NeoPixel strip){

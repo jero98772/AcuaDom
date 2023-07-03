@@ -5,8 +5,8 @@ class relays
 private:
     
 public:
-    void turnOnligths();
-    void turnOffligths();
+    void turnOnlights();
+    void turnOfflights();
     void turnOnFilters();
     void turnOffFilters();
     void turnOnThermostat();

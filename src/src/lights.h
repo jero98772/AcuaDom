@@ -10,10 +10,10 @@ private:
 public:
     lights();
     ~lights();
-    void morningLigth();
-    void noonLigth();
-    void afternoonLigth();
-    void nightLigth();
+    void morningLight();
+    void noonLight();
+    void afternoonLight();
+    void nightLight();
     void complateCicle(String time);
     void turnOff();
     void turnOn();
