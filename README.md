@@ -78,4 +78,4 @@ Contributions are welcome! If you would like to contribute to Acuadom, please fo
 ![](https://github.com/jero98772/AcuaDom/blob/main/docs/images/wifiwebserver.jpeg)
 
 ## Credits
-Acuadom was developed by jero98772, with the help of Sara Domingez,Camilo and Checho. The code is licensed under the GPL3 License.
+Acuadom was developed by jero98772, with the help of  Checho. The code is licensed under the GPL3 License.
