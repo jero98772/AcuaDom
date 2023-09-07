@@ -23,5 +23,4 @@
 #define PINSTRIP1 19 //D19
 #define PINSTRIP2 18 //D18
 
-
 #endif

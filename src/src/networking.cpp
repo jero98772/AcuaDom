@@ -11,6 +11,7 @@ const char* ntpServer = "pool.ntp.org";
 const long  gmtOffset_sec = -18000;
 const int   daylightOffset_sec = 0;
 
+
 WebServer server(80);
 relays relayNet;
 String SendHTML() {
@@ -144,3 +145,4 @@ void networking::webServerSetup(){
 void networking::webServerRun(){
 	server.handleClient();
 }
+
